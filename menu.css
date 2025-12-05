@@ -133,6 +133,14 @@ font-weight: 700;
     gap: 20px;
     padding: 20px;
 }
+.item img {
+  width: 250px;           /* Adjust size as needed */
+  height: auto;           /* Keeps natural aspect ratio */
+  border-radius: 10px;    /* Smooth rounded corners */
+  margin-top: 10px;       /* Space from content above */
+  display: block;         /* Prevent inline spacing issues */
+}
+
 
 /* Each column container */
 .menu-grid .column {
