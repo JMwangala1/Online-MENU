@@ -1,0 +1,194 @@
+/* ============================
+   GENERAL PAGE STYLING
+================================ */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f7f7f7;
+}
+
+/* ============================
+   NAVIGATION BAR
+================================ */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background: #111;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* ============================
+   HERO SECTION
+================================ */
+.hero {
+    background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5') center/cover;
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+/* ============================
+   SEARCH + FILTER AREA
+================================ */
+.controls {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.controls input {
+    width: 70%;
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.filters button {
+    margin: 10px;
+    padding: 10px 20px;
+    background: #111;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filters button.active {
+    background: #c70000;
+}
+
+/* ============================
+   MENU ITEMS
+================================ */
+.menu-section {
+    padding: 40px 20px;
+}
+
+/* Menu Title */
+.menu-title {
+text-align: center;
+font-size: 2.5rem;
+margin-bottom: 30px;
+font-weight: 700;
+}
+
+.menu-items .item {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 6px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+.item h3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price {
+    color: #c70000;
+    font-weight: bold;
+}
+
+.order-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #c70000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ============================
+   TWO-COLUMN MENU GRID
+=============================== */
+
+/* Wrapper for the two columns */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* two equal columns */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Each column container */
+.menu-grid .column {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
+
+/* Center the section titles */
+.menu-grid .column h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Make items inside each column uniform */
+.menu-grid .menu-items .item {
+    margin-bottom: 15px;
+}
+
+/* RESPONSIVE — On phone screens, stack vertically */
+@media (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: 1fr; /* one column on small screens */
+    }
+}
+
+
+/* ============================
+   SPECIALS
+================================ */
+.specials {
+    background: #ffefef;
+    padding: 30px;
+    text-align: center;
+    border-left: 5px solid #c70000;
+}
+
+/* ============================
+   QR SECTION
+================================ */
+.qr {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.qr img {
+    width: 160px;
+}
+
+/* ============================
+   FOOTER
+================================ */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}

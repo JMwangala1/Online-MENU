@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the website -->
+    <title>Bianca Lounge Restaurant Menu</title>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+
+    <!-- ============================
+         NAVIGATION BAR
+    ================================= -->
+    <nav>
+        <h1 class="logo">Bianca Lounge Restaurant</h1>
+        <ul>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#specials">Specials</a></li>
+            <li><a href="#qr">QR Menu</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============================
+         HERO SECTION
+    ================================= -->
+    <header class="hero">
+        <h2>Fresh • Delicious • Affordable</h2>
+        <p>Welcome to the Bianca Lounge Restaurant Online Menu</p>
+    </header>
+
+    <!-- ============================
+         SEARCH + CATEGORY FILTER
+    ================================= -->
+    <section class="controls" id="menu">
+
+        <!-- Search Bar -->
+        <input 
+            type="text" 
+            id="search" 
+            placeholder="Search food or drinks..." 
+            onkeyup="searchMenu()"
+        />
+
+        <!-- Category Buttons -->
+        <div class="filters">
+            <button onclick="filterCategory('all')" class="active">All</button>
+            <button onclick="filterCategory('drinks')">Drinks</button>
+            <button onclick="filterCategory('food')">Food</button>
+            <button onclick="filterCategory('special')">Specials</button>
+        </div>
+    </section>
+
+    <!-- ============================
+         MENU ITEMS SECTION
+    ================================= -->
+    <section class="menu-section">
+        <h2 class="menu-title">Our Menu</h2>
+
+<!-- Two-column layout wrapper -->
+<div class="menu-grid">
+
+    <!-- LEFT COLUMN: DRINKS -->
+    <div class="column">
+        <h2>Drinks</h2>
+        <div class="menu-items">
+
+            <!-- Drink Items -->
+            <div class="item drinks">
+                <h3>Mojito <span class="price">KES 450</span></h3>
+                <p>Classic mint cocktail</p>
+                <button class="order-btn">Order</button>
+            </div>
+
+            <div class="item drinks">
+                <h3>Cold Beer <span class="price">KES 300</span></h3>
+                <p>Tusker / Pilsner / Guinness</p>
+                <button class="order-btn">Order</button>
+            </div>
+
+            <div class="item drinks">
+                <h3>Fresh Juice <span class="price">KES 250</span></h3>
+                <p>Mango, Pineapple, Passion</p>
+                <button class="order-btn">Order</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- RIGHT COLUMN: FOOD -->
+    <div class="column">
+        <h2>Food</h2>
+        <div class="menu-items">
+
+            <!-- Food Items -->
+            <div class="item food">
+                <h3>Chicken Fry <span class="price">KES 700</span></h3>
+                <p>Served with chips or ugali</p>
+                <button class="order-btn">Order</button>
+            </div>
+
+            <div class="item food">
+                <h3>Beef Stew <span class="price">KES 600</span></h3>
+                <p>Traditional Kenyan style</p>
+                <button class="order-btn">Order</button>
+            </div>
+
+            <div class="item food">
+                <h3>Fish Fillet <span class="price">KES 800</span></h3>
+                <p>Pan fried with tartar sauce</p>
+                <button class="order-btn">Order</button>
+            </div>
+
+            <!-- Special still belongs to food section -->
+            <div class="item special">
+                <h3>Grilled Goat + Kachumbari <span class="price">KES 850</span></h3>
+                <p>Today’s special</p>
+                <button class="order-btn">Order</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+    </section>
+
+    <!-- ============================
+         SPECIALS SECTION
+    ================================= -->
+    <section class="specials" id="specials">
+        <h2>🔥 Today’s Specials</h2>
+        <p>Grilled Goat + Kachumbari – <strong>KES 850</strong></p>
+    </section>
+
+    <!-- ============================
+         QR MENU SECTION
+    ================================= -->
+    <section class="qr" id="qr">
+        <h2>Scan to View This Menu</h2>
+        <p>Use your phone camera to scan</p>
+
+        <!-- Auto-generated QR code -->
+        <img 
+            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Bianca%20Lounge%20Menu" 
+            alt="QR Code"
+        />
+    </section>
+
+    <!-- ============================
+         FOOTER
+    ================================= -->
+    <footer id="contact">
+        <p>Contact us: 0712 345 678 | Nairobi, Kenya</p>
+        <p>&copy; 2025 Bianca Lounge Restaurant</p>
+    </footer>
+
+    <!-- Link to external JS file -->
+    <script src="menu.js"></script>
+
+</body>
+</html>
