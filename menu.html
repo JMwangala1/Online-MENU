@@ -3,165 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Title of the website -->
     <title>Bianca Lounge Restaurant Menu</title>
-
-    <!-- Link to external CSS file -->
+    
+    <!-- Link to external CSS -->
     <link rel="stylesheet" href="menu.css">
 </head>
 
 <body>
 
-    <!-- ============================
-         NAVIGATION BAR
-    ================================= -->
+    <!-- NAVIGATION -->
     <nav>
-        <h1 class="logo">Bianca Lounge Restaurant</h1>
+        <div class="logo">Bianca Lounge</div>
         <ul>
             <li><a href="#menu">Menu</a></li>
             <li><a href="#specials">Specials</a></li>
-            <li><a href="#qr">QR Menu</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- ============================
-         HERO SECTION
-    ================================= -->
+    <!-- HERO SECTION -->
     <header class="hero">
-        <h2>Fresh • Delicious • Affordable</h2>
-        <p>Welcome to the Bianca Lounge Restaurant Digital Menu</p>
+        <div class="hero-content">
+            <h2>Fresh • Delicious • Affordable</h2>
+            <p>Order directly from your phone</p>
+        </div>
     </header>
 
-    <!-- ============================
-         SEARCH + CATEGORY FILTER
-    ================================= -->
+    <!-- SEARCH & CONTROLS -->
     <section class="controls" id="menu">
-
-        <!-- Search Bar -->
-        <input 
-            type="text" 
-            id="search" 
-            placeholder="Search food or drinks..." 
-            onkeyup="searchMenu()"
-        />
-
-        <!-- Category Buttons -->
+        <input type="text" id="search" placeholder="Search food (e.g., Chicken, Mojito)..." onkeyup="searchMenu()">
+        
         <div class="filters">
-            <button onclick="filterCategory('all')" class="active">All</button>
-            <button onclick="filterCategory('drinks')">Drinks</button>
-            <button onclick="filterCategory('food')">Food</button>
-            <button onclick="filterCategory('special')">Specials</button>
+            <!-- Note: passing 'this' allows JS to highlight the active button -->
+            <button onclick="filterCategory('all', this)" class="active">All</button>
+            <button onclick="filterCategory('drinks', this)">Drinks</button>
+            <button onclick="filterCategory('food', this)">Food</button>
+            <button onclick="filterCategory('special', this)">Specials</button>
         </div>
     </section>
 
-    <!-- ============================
-         MENU ITEMS SECTION
-    ================================= -->
+    <!-- MENU AREA -->
     <section class="menu-section">
-        <h2 class="menu-title">Our Menu</h2>
+        <div class="menu-grid">
 
-<!-- Two-column layout wrapper -->
-<div class="menu-grid">
+            <!-- COLUMN 1: DRINKS -->
+            <!-- ID added for smart filtering -->
+            <div class="column" id="col-drinks">
+                <h2>Drinks</h2>
+                <div class="menu-items">
+                    
+                    <div class="item drinks">
+                        <h3>Mojito <span class="price">KES 450</span></h3>
+                        <p>Classic mint cocktail</p>
+                        <a href="#" class="order-btn" onclick="orderItem('Mojito', 450)">Order via WhatsApp</a>
+                    </div>
 
-    <!-- LEFT COLUMN: DRINKS -->
-    <div class="column">
-        <h2>Drinks</h2>
-        <div class="menu-items">
+                    <div class="item drinks">
+                        <h3>Cold Beers <span class="price">KES 300</span></h3>
+                        <p>Tusker / Pilsner / Guinness</p>
+                        <div class="image-row">
+                        <!-- Added onerror to hide broken images automatically -->
+                        <img src="Images/Guiness.jpg" onerror="this.style.display='none'" alt="Beer">
+                        <img src="Images/Heineken.jpg" alt="Beer">
+                        </div>
+                        <a href="#" class="order-btn" onclick="orderItem('Cold Beer', 300)">Order via WhatsApp</a>
+                    </div>
 
-            <!-- Drink Items -->
-            <div class="item drinks">
-                <h3>Mojito <span class="price">KES 450</span></h3>
-                <p>Classic mint cocktail</p>
-                <button class="order-btn">Order</button>
+                    <div class="item drinks">
+                        <h3>Fresh Juice <span class="price">KES 250</span></h3>
+                        <p>Mango, Pineapple, Passion</p>
+                        <a href="#" class="order-btn" onclick="orderItem('Fresh Juice', 250)">Order via WhatsApp</a>
+                    </div>
+
+                </div>
             </div>
 
-            <div class="item drinks">
-                <h3>Cold Beer <span class="price">KES 300</span></h3>
-                <p>Tusker / Pilsner / Guinness</p>
-                <button class="order-btn">Order</button>
-                <img src="Images/Guiness.jpg" alt="can">
-            </div>
+            <!-- COLUMN 2: FOOD -->
+            <div class="column" id="col-food">
+                <h2>Food</h2>
+                <div class="menu-items">
 
-            <div class="item drinks">
-                <h3>Fresh Juice <span class="price">KES 250</span></h3>
-                <p>Mango, Pineapple, Passion</p>
-                <button class="order-btn">Order</button>
-            </div>
+                    <div class="item food">
+                        <h3>Chicken Fry <span class="price">KES 700</span></h3>
+                        <p>Served with chips or ugali</p>
+                        <a href="#" class="order-btn" onclick="orderItem('Chicken Fry', 700)">Order via WhatsApp</a>
+                    </div>
 
-        </div>
-    </div>
+                    <div class="item food">
+                        <h3>Beef Stew <span class="price">KES 600</span></h3>
+                        <p>Traditional Kenyan style</p>
+                        <a href="#" class="order-btn" onclick="orderItem('Beef Stew', 600)">Order via WhatsApp</a>
+                    </div>
 
-    <!-- RIGHT COLUMN: FOOD -->
-    <div class="column">
-        <h2>Food</h2>
-        <div class="menu-items">
+                    <!-- Specials are tagged with both 'food' and 'special' classes -->
+                    <div class="item food special">
+                        <h3>Grilled Goat <span class="price">KES 850</span></h3>
+                        <p>Today’s Special + Kachumbari</p>
+                        <a href="#" class="order-btn" onclick="orderItem('Grilled Goat', 850)">Order via WhatsApp</a>
+                    </div>
 
-            <!-- Food Items -->
-            <div class="item food">
-                <h3>Chicken Fry <span class="price">KES 700</span></h3>
-                <p>Served with chips or ugali</p>
-                <button class="order-btn">Order</button>
-            </div>
-
-            <div class="item food">
-                <h3>Beef Stew <span class="price">KES 600</span></h3>
-                <p>Traditional Kenyan style</p>
-                <button class="order-btn">Order</button>
-            </div>
-
-            <div class="item food">
-                <h3>Fish Fillet <span class="price">KES 800</span></h3>
-                <p>Pan fried with tartar sauce</p>
-                <button class="order-btn">Order</button>
-            </div>
-
-            <!-- Special still belongs to food section -->
-            <div class="item special">
-                <h3>Grilled Goat + Kachumbari <span class="price">KES 850</span></h3>
-                <p>Today’s special</p>
-                <button class="order-btn">Order</button>
+                </div>
             </div>
 
         </div>
-    </div>
-
-</div>
-
     </section>
 
-    <!-- ============================
-         SPECIALS SECTION
-    ================================= -->
+    <!-- SPECIALS BANNER -->
     <section class="specials" id="specials">
         <h2>🔥 Today’s Specials</h2>
-        <p>Grilled Goat + Kachumbari – <strong>KES 850</strong></p>
+        <p>Get the <strong>Grilled Goat Platter</strong> for only KES 850!</p>
     </section>
 
-    <!-- ============================
-         QR MENU SECTION
-    ================================= -->
+    <!-- QR CODE -->
     <section class="qr" id="qr">
-        <h2>Scan to View This Menu</h2>
-        <p>Use your phone camera to scan</p>
-
-        <!-- Auto-generated QR code -->
-        <img 
-            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Bianca%20Lounge%20Menu" 
-            alt="QR Code"
-        />
+        <h3>Scan to share menu</h3>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Bianca%20Lounge%20Menu" alt="QR Code">
     </section>
 
-    <!-- ============================
-         FOOTER
-    ================================= -->
     <footer id="contact">
-        <p>Contact us: 0712 345 678 | Nairobi, Kenya</p>
-        <p>&copy; 2025 Bianca Lounge Restaurant</p>
+        <p>&copy; 2025 Bianca Lounge Restaurant | 0701 639 517</p>
     </footer>
 
-    <!-- Link to external JS file -->
+    <!-- Link to external JS -->
     <script src="menu.js"></script>
 
 </body>

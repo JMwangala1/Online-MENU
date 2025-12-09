@@ -1,110 +1,161 @@
 /* ============================
-   GENERAL PAGE STYLING
+   GLOBAL STYLES
 ================================ */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     background: #f7f7f7;
+    color: #333;
+    scroll-behavior: smooth;
 }
 
 /* ============================
-   NAVIGATION BAR
+   NAVIGATION
 ================================ */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 25px;
+    padding: 15px 5%;
     background: #111;
     color: white;
     position: sticky;
     top: 0;
+    z-index: 1000;
 }
 
 nav ul {
     display: flex;
     gap: 20px;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 nav a {
     color: white;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 1.5rem;
     font-weight: bold;
+    margin: 0;
 }
 
 /* ============================
    HERO SECTION
 ================================ */
 .hero {
-    background: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5') center/cover;
-    padding: 80px 20px;
+    /* Loads a background image from Unsplash. You can change this to your own image path */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+    background-position: center;
+    background-size: cover;
+    padding: 100px 20px;
     text-align: center;
     color: white;
 }
 
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
 /* ============================
-   SEARCH + FILTER AREA
+   CONTROLS (SEARCH & FILTER)
 ================================ */
 .controls {
     background: white;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 10;
 }
 
-.controls input {
-    width: 70%;
+#search {
+    width: 80%;
     max-width: 400px;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 12px;
+    border-radius: 25px;
     border: 1px solid #ccc;
+    outline: none;
+    margin-bottom: 15px;
+    font-size: 1rem;
 }
 
 .filters button {
-    margin: 10px;
-    padding: 10px 20px;
-    background: #111;
-    color: white;
+    margin: 5px;
+    padding: 8px 16px;
+    background: #eee;
+    color: #333;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.filters button:hover {
+    background: #ddd;
 }
 
 .filters button.active {
     background: #c70000;
+    color: white;
+}
+
+/* ============================
+   MENU LAYOUT
+================================ */
+.menu-section {
+    padding: 40px 5%;
+}
+
+.menu-grid {
+    display: grid;
+    /* Automatically creates columns (min 300px wide) */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+
+.column {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: opacity 0.3s ease; /* For smooth hiding */
+}
+
+.column h2 {
+    text-align: center;
+    color: #c70000;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
 }
 
 /* ============================
    MENU ITEMS
 ================================ */
-.menu-section {
-    padding: 40px 20px;
+.item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
 }
 
-/* Menu Title */
-.menu-title {
-text-align: center;
-font-size: 2.5rem;
-margin-bottom: 30px;
-font-weight: 700;
-}
-
-.menu-items .item {
-    background: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 6px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+.item:last-child {
+    border-bottom: none;
 }
 
 .item h3 {
     display: flex;
     justify-content: space-between;
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #222;
 }
 
 .price {
@@ -112,91 +163,110 @@ font-weight: 700;
     font-weight: bold;
 }
 
-.order-btn {
+.item p {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0 0 10px 0;
+}
+
+.item img {
+    width: 50%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
     margin-top: 10px;
-    padding: 8px 15px;
-    background: #c70000;
+    display: block;
+}
+
+/* Container for side-by-side images */
+.image-row {
+    display: flex; /* This creates the row */
+    width: 100%;
+    margin-top: 10px;
+    gap: 5px; /* Ensures ZERO gap */
+}
+
+/* Force images inside the row to be 50% width each */
+.image-row img {
+    width: 50%;
+    height: 180px; /* Keep heights consistent */
+    object-fit: cover;
+    margin: 0; /* Remove any default margins */
+    display: block; /* Removes tiny spaces under images */
+    
+    /* Optional: Fix corners so they look like one block */
+    border-radius: 0; 
+}
+
+/* Optional: Round the far left corners of the first image */
+.image-row img:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+/* Optional: Round the far right corners of the second image */
+.image-row img:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* WhatsApp Button Style */
+.order-btn {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 8px 14px;
+    background: #25D366; /* WhatsApp Green */
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.order-btn:hover {
+    background: #1ebc57;
 }
 
 /* ============================
-   TWO-COLUMN MENU GRID
-=============================== */
-
-/* Wrapper for the two columns */
-.menu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* two equal columns */
-    gap: 10px;
-    padding: 20px;
-}
-.item img {
-  width: 250px;           /* Adjust size as needed */
-  height: auto;           /* Keeps natural aspect ratio */
-  border-radius: 10px;    /* Smooth rounded corners */
-  margin-top: 10px;       /* Space from content above */
-  display: block;         /* Prevent inline spacing issues */
-}
-
-
-/* Each column container */
-.menu-grid .column {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 4px rgba(0,0,0,0.1);
-}
-
-/* Center the section titles */
-.menu-grid .column h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Make items inside each column uniform */
-.menu-grid .menu-items .item {
-    margin-bottom: 15px;
-}
-
-/* RESPONSIVE — On phone screens, stack vertically */
-@media (max-width: 768px) {
-    .menu-grid {
-        grid-template-columns: 1fr; /* one column on small screens */
-    }
-}
-
-
-/* ============================
-   SPECIALS
+   SPECIALS & QR
 ================================ */
 .specials {
-    background: #ffefef;
-    padding: 30px;
+    background: #fff0f0;
+    padding: 40px;
     text-align: center;
-    border-left: 5px solid #c70000;
+    margin: 20px 5%;
+    border-radius: 10px;
+    border: 1px dashed #c70000;
 }
 
-/* ============================
-   QR SECTION
-================================ */
 .qr {
-    padding: 40px 20px;
+    padding: 40px;
     text-align: center;
+    background: white;
+    margin-top: 20px;
 }
 
-.qr img {
-    width: 160px;
-}
-
-/* ============================
-   FOOTER
-================================ */
 footer {
     background: #111;
     color: white;
     text-align: center;
     padding: 20px;
+    margin-top: 20px;
+}
+
+/* ============================
+   MOBILE RESPONSIVENESS
+================================ */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .menu-grid {
+        grid-template-columns: 1fr; /* Force single column on phones */
+    }
 }
