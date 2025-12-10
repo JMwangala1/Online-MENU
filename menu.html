@@ -15,7 +15,7 @@
     <nav>
         <div class="logo">Bianca Lounge</div>
         <ul>
-            <li><a href="#menu">Menu</a></li>
+            <li><a href="#menu" onclick="resetToDefault()">Menu</a></li>
             <li><a href="#specials">Specials</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
@@ -75,6 +75,23 @@
                         <a href="#" class="order-btn" onclick="orderItem('Fresh Juice', 250)">Order via WhatsApp</a>
                     </div>
 
+                      <!-- HIDDEN ITEMS (Add class "hidden-item") -->
+        <!-- These will not show until button is clicked -->
+        <div class="item drinks hidden-item">
+            <h3>Whiskey Sour <span class="price">KES 550</span></h3>
+            <p>Bourbon, lemon, sugar</p>
+            <a href="#" class="order-btn" onclick="orderItem('Whiskey Sour', 550)">Order via WhatsApp</a>
+        </div>
+
+        <div class="item drinks hidden-item">
+            <h3>Gin & Tonic <span class="price">KES 400</span></h3>
+            <p>Gilbeys or Gordons</p>
+            <a href="#" class="order-btn" onclick="orderItem('Gin & Tonic', 400)">Order via WhatsApp</a>
+        </div>
+
+        <!-- THE BUTTON -->
+        <!-- Pass the ID of this specific column to the function -->
+        <button class="see-more-btn" onclick="toggleItems('col-drinks', this)">See More ▾</button>
                 </div>
             </div>
 
@@ -101,6 +118,24 @@
                         <p>Today’s Special + Kachumbari</p>
                         <a href="#" class="order-btn" onclick="orderItem('Grilled Goat', 850)">Order via WhatsApp</a>
                     </div>
+                  
+        <!-- === HIDDEN ITEMS (Class "hidden-item") === -->
+        <!-- These stay hidden until button is clicked -->
+        <div class="item food hidden-item">
+            <h3>Fish Fillet <span class="price">KES 800</span></h3>
+            <p>Pan fried with tartar sauce</p>
+            <a href="#" class="order-btn" onclick="orderItem('Fish Fillet', 800)">Order via WhatsApp</a>
+        </div>
+
+        <div class="item food hidden-item">
+            <h3>Mbuzi Choma (250g) <span class="price">KES 900</span></h3>
+            <p>Served with Kachumbari</p>
+            <a href="#" class="order-btn" onclick="orderItem('Mbuzi Choma', 900)">Order via WhatsApp</a>
+        </div>
+
+        <!-- === THE BUTTON === -->
+        <!-- Note: We use 'col-food' here so it only opens this specific list -->
+        <button class="see-more-btn" onclick="toggleItems('col-food', this)">See More ▾</button>
 
                 </div>
             </div>

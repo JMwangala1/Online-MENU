@@ -229,6 +229,30 @@ nav a {
     background: #1ebc57;
 }
 
+/* 1. Hide items by default */
+.hidden-item {
+    display: none;
+}
+
+/* 2. Style the "See More" button */
+.see-more-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: transparent;
+    border: 1px dashed #c70000;
+    color: #c70000;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.see-more-btn:hover {
+    background: #fff0f0;
+}
+
 /* ============================
    SPECIALS & QR
 ================================ */

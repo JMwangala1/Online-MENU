@@ -82,3 +82,69 @@ function updateColumnVisibility() {
         col.style.display = hasVisibleItems ? "block" : "none";
     });
 }
+
+/* ========================================
+   SEE MORE / SEE LESS TOGGLE FUNCTION
+========================================= */
+function toggleItems(columnId, btnElement) {
+    // 1. Find the column we clicked in
+    let column = document.getElementById(columnId);
+    
+    // 2. Find all hidden items INSIDE that column
+    let hiddenItems = column.querySelectorAll('.hidden-item');
+    
+    // 3. Check current state (Are they hidden or shown?)
+    let isExpanded = btnElement.getAttribute('data-expanded') === 'true';
+
+    if (!isExpanded) {
+        // --- EXPAND (SHOW ITEMS) ---
+        hiddenItems.forEach(item => {
+            item.style.display = 'block';
+        });
+        
+        // Change button text
+        btnElement.innerHTML = 'See Less ▴';
+        btnElement.setAttribute('data-expanded', 'true');
+        
+    } else {
+        // --- COLLAPSE (HIDE ITEMS) ---
+        hiddenItems.forEach(item => {
+            item.style.display = 'none';
+        });
+        
+        // Change button text back
+        btnElement.innerHTML = 'See More ▾';
+        btnElement.setAttribute('data-expanded', 'false');
+        
+        // Optional: Scroll back up slightly so user doesn't get lost
+        btnElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+}
+
+/* ========================================
+   RESET FUNCTION (Attached to Nav "Menu" Link)
+========================================= */
+function resetToDefault() {
+    // 1. Clear the search bar
+    let searchInput = document.getElementById("search");
+    searchInput.value = ""; 
+    
+    // 2. Reset Filter to "All"
+    // We find the first button (which is 'All') and trigger the click logic
+    let allBtn = document.querySelector(".filters button");
+    filterCategory('all', allBtn);
+
+    // 3. Force "Hidden Items" to hide again
+    // (Because filterCategory('all') might have accidentally opened them)
+    let hiddenItems = document.querySelectorAll(".hidden-item");
+    hiddenItems.forEach(item => {
+        item.style.display = "none";
+    });
+
+    // 4. Reset all "See More" buttons text
+    let seeMoreBtns = document.querySelectorAll(".see-more-btn");
+    seeMoreBtns.forEach(btn => {
+        btn.innerHTML = "See More ▾";
+        btn.setAttribute("data-expanded", "false");
+    });
+}
