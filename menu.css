@@ -388,17 +388,29 @@ footer {
     margin-top: 20px;
 }
 
-/* ============================
-   MOBILE RESPONSIVENESS
-================================ */
+/* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
     
-    .menu-grid {
-        grid-template-columns: 1fr; /* Force single column on phones */
+    /* 1. Keep the Navbar in a Row (Side-by-Side) */
+    nav {
+        flex-direction: row;       /* Forces them to stay on the same line */
+        justify-content: space-between; /* Logo on left, Links on right */
+        align-items: center;
+        padding: 10px 15px;        /* Reduce padding slightly for small screens */
+    }
+
+    /* 2. Make the Logo smaller so it fits */
+    .logo {
+        font-size: 1.1rem;         /* Shrink logo text */
+    }
+
+    /* 3. Adjust the spacing of the links */
+    nav ul {
+        gap: 10px;                 /* Reduce gap between Menu/Specials/Contact */
+    }
+
+    /* 4. Make the link text smaller */
+    nav a {
+        font-size: 0.85rem;        /* Shrink link text slightly */
     }
 }
